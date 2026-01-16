@@ -54,9 +54,20 @@ const Hero: React.FC = () => {
               <Button href="https://wa.me/5531992284675?text=Olá%2C%20gostaria%20de%20agendar%20uma%20avaliação%20personalizada.">
                 Agende sua Avaliação
               </Button>
-              <Button variant="outline" href="#about">
-                Conheça Meu Trabalho
-              </Button>
+              <button
+                onClick={() => {
+                  const element = document.getElementById('about');
+                  if (element) {
+                    const offset = 80;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }
+                }}
+                className="relative overflow-hidden inline-flex items-center justify-center px-10 py-4 text-sm uppercase tracking-[0.2em] font-medium transition-all duration-500 ease-out rounded-sm group bg-transparent border-2 border-taupe text-warm-grey hover:border-gold-butterfly hover:text-gold-butterfly hover:bg-gold-butterfly/5"
+              >
+                <span className="relative z-20">Conheça Meu Trabalho</span>
+              </button>
             </div>
           </div>
 

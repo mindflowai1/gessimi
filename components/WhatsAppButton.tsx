@@ -6,14 +6,12 @@ const WhatsAppButton: React.FC = () => {
     const [showTooltip, setShowTooltip] = useState(false);
 
     useEffect(() => {
-        // Show button after a short delay
-        const timer = setTimeout(() => setIsVisible(true), 1000);
+        const timer = setTimeout(() => setIsVisible(true), 1500);
 
-        // Show tooltip after 3 seconds, then hide after 5 seconds
         const tooltipTimer = setTimeout(() => {
             setShowTooltip(true);
-            setTimeout(() => setShowTooltip(false), 5000);
-        }, 3000);
+            setTimeout(() => setShowTooltip(false), 6000);
+        }, 4000);
 
         return () => {
             clearTimeout(timer);
@@ -31,43 +29,48 @@ const WhatsAppButton: React.FC = () => {
     if (!isVisible) return null;
 
     return (
-        <>
-            {/* WhatsApp Floating Button */}
-            <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3 animate-scale-in">
-                {/* Tooltip */}
-                {showTooltip && (
-                    <div className="hidden md:block bg-white shadow-2xl rounded-2xl px-6 py-4 border border-gold-butterfly/20 animate-slide-in-right">
-                        <p className="text-warm-grey font-medium text-sm whitespace-nowrap">
-                            Agende sua avaliação! 💬
-                        </p>
-                        <button
-                            onClick={() => setShowTooltip(false)}
-                            className="absolute -top-2 -right-2 w-6 h-6 bg-warm-grey text-white rounded-full flex items-center justify-center hover:bg-gold-butterfly transition-colors"
-                        >
-                            <X className="w-3 h-3" />
-                        </button>
+        <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3 animate-scale-in">
+            {/* Professional Tooltip - Desktop Only */}
+            {showTooltip && (
+                <div className="hidden md:flex items-center gap-3 bg-white/95 backdrop-blur-xl shadow-2xl rounded-xl px-5 py-3 border border-gold-butterfly/20 animate-slide-in-right relative">
+                    <div className="flex flex-col">
+                        <span className="text-warm-grey font-semibold text-sm">Agende sua avaliação</span>
+                        <span className="text-warm-grey/70 text-xs">Respondo em até 24h</span>
                     </div>
-                )}
 
-                {/* Button */}
-                <button
-                    onClick={handleClick}
-                    className="group relative w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-full shadow-2xl hover:shadow-[0_20px_60px_rgba(37,211,102,0.4)] transition-all duration-500 hover:scale-110 flex items-center justify-center"
-                    aria-label="Contato via WhatsApp"
-                >
-                    {/* Pulse Animation */}
-                    <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20"></span>
+                    <button
+                        onClick={() => setShowTooltip(false)}
+                        className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-warm-grey/80 text-white rounded-full flex items-center justify-center hover:bg-warm-grey transition-colors"
+                        aria-label="Fechar"
+                    >
+                        <X className="w-3 h-3" />
+                    </button>
 
-                    {/* Icon */}
-                    <MessageCircle className="w-8 h-8 md:w-10 md:h-10 text-white relative z-10 group-hover:rotate-12 transition-transform duration-300" />
+                    {/* Arrow */}
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full">
+                        <div className="w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-white/95"></div>
+                    </div>
+                </div>
+            )}
 
-                    {/* Mobile Tooltip */}
-                    <span className="md:hidden absolute -top-12 right-0 bg-warm-grey text-white text-xs px-3 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                        Fale conosco
-                    </span>
-                </button>
-            </div>
-        </>
+            {/* WhatsApp Button - Smaller and More Professional */}
+            <button
+                onClick={handleClick}
+                className="group relative w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-full shadow-lg hover:shadow-[0_10px_40px_rgba(37,211,102,0.35)] transition-all duration-500 hover:scale-110 flex items-center justify-center"
+                aria-label="Contato via WhatsApp"
+            >
+                {/* Subtle Pulse */}
+                <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-15"></span>
+
+                {/* Icon */}
+                <MessageCircle className="w-7 h-7 md:w-8 md:h-8 text-white relative z-10 group-hover:rotate-6 transition-transform duration-300" />
+
+                {/* Mobile Tooltip */}
+                <span className="md:hidden absolute -top-10 right-0 bg-warm-grey/95 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-lg">
+                    Fale conosco
+                </span>
+            </button>
+        </div>
     );
 };
 
