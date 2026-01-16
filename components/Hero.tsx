@@ -42,24 +42,21 @@ const Hero: React.FC = () => {
             {/* Description */}
             <div className="space-y-4">
               <p className="font-sans text-warm-grey/90 text-lg leading-relaxed max-w-lg pl-6 border-l-2 border-gold-butterfly/50">
-                A mais de 10 anos na área da saúde, me formei em <strong>Biomedicina em 2017</strong> com especialização em análises clínicas.
+                Há mais de 7 anos na área da saúde, me formei em <strong>Biomedicina em 2017</strong> com especialização em análises clínicas.
               </p>
-              <p className="font-sans text-warm-grey/80 text-base leading-relaxed max-w-lg pl-6">
-                Me encontrei na estética ao perceber que poderia cuidar das pessoas de uma maneira diferente: <span className="italic text-soft-rose font-medium">melhorando a autoestima e evidenciando ainda mais sua beleza.</span>
+              <p className="font-sans text-warm-grey/90 text-lg leading-relaxed max-w-lg pl-6 border-l-2 border-gold-butterfly/50">
+                Hoje, dedico-me à <strong>estética avançada</strong>, oferecendo procedimentos faciais, terapia capilar e tratamentos corporais com cuidado individualizado e sem exageros.
               </p>
             </div>
 
             {/* CTA Buttons */}
-            <div className="pt-6 flex flex-col sm:flex-row gap-4 items-start">
-              <Button href="https://wa.me/5531992284675?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.">
-                Agendar Avaliação
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Button href="https://wa.me/5531992284675?text=Olá%2C%20gostaria%20de%20agendar%20uma%20avaliação%20personalizada.">
+                Agende sua Avaliação
               </Button>
-              <div className="flex items-center gap-2 text-taupe">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4, 5].map(i => <Star key={i} size={16} className="fill-gold-butterfly text-gold-butterfly" />)}
-                </div>
-                <span className="text-xs uppercase tracking-wider">Atendimento Exclusivo</span>
-              </div>
+              <Button variant="outline" href="#about">
+                Conheça Meu Trabalho
+              </Button>
             </div>
           </div>
 
