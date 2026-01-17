@@ -4,7 +4,7 @@ import { Star, Sparkles } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-to-br from-pearl via-off-white to-cream pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center bg-gradient-to-br from-pearl via-off-white to-cream pt-32 lg:pt-20 overflow-hidden">
       {/* Floating Butterfly Decorations */}
       <div className="absolute top-20 right-[15%] w-16 h-16 opacity-20 animate-float" style={{ animationDelay: '0s' }}>
         <svg viewBox="0 0 100 100" className="text-gold-butterfly fill-current">
